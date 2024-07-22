@@ -1,5 +1,99 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-github-alecthomas-kong (0.9.0-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream version 0.9.0
+  * Bump versioned dependencies as per go.mod
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Anthony Fok <foka@debian.org>  Sun, 24 Mar 2024 20:38:13 -0600
+
+golang-github-alecthomas-kong (0.8.1-1) unstable; urgency=medium
+
+  * New upstream version 0.8.1
+
+ -- Anthony Fok <foka@debian.org>  Fri, 08 Dec 2023 15:50:32 -0700
+
+golang-github-alecthomas-kong (0.7.1-1) unstable; urgency=medium
+
+  * New upstream version 0.7.1
+  * Update and simplify versioned dependencies as per go.mod.
+    The direct dependencies are now down to two as follows:
+    - golang-github-alecthomas-assert-dev (>= 2.1.0)
+    - golang-github-alecthomas-repr-dev (>= 0.1.0)
+  * Bump Standards-Version to 4.6.2 (no change)
+  * Revert "Skip TestCustomWrap which causes FTBFS with golang-1.19"
+    which was merged upstream on 2022-08-26 for v0.7.0 (released 2022-10-17),
+    see https://github.com/alecthomas/kong/pull/328
+
+ -- Anthony Fok <foka@debian.org>  Wed, 08 Mar 2023 10:39:11 -0700
+
+golang-github-alecthomas-kong (0.3.0-2) unstable; urgency=medium
+
+  * Skip TestCustomWrap which causes FTBFS with golang-1.19.
+    As part of the implementation of Russ Cox’s “Proposal:
+    go/doc: headings, lists, and links in Go doc comments”,
+    go1.19 comes with an improved wrapping algorithm which
+    “minimiz[es] the sum of the squares of the leftover lengths
+    at the end of each line (except the last, of course)”
+    but differs from what TestCustomWrap currently expects.
+    (Closes: #1017301)
+  * Use dh-sequence-golang instead of dh-golang and --with=golang
+  * debian/rules: Invoke dh with --builddirectory=_build
+  * Bump Standards-Version to 4.6.1 (no change)
+  * Reorder fields in debian/control and debian/copyright
+
+ -- Anthony Fok <foka@debian.org>  Wed, 24 Aug 2022 02:14:28 -0600
+
+golang-github-alecthomas-kong (0.3.0-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 0.3.0
+  * Update B-D and Depends
+
+ -- Nilesh Patra <nilesh@debian.org>  Sat, 14 May 2022 16:28:21 +0530
+
+golang-github-alecthomas-kong (0.2.17-1) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+  [ Anthony Fok ]
+  * New upstream version 0.2.17
+  * Change Section from devel to golang
+  * Bump debhelper dependency to "Build-Depends: debhelper-compat (= 13)"
+  * Bump Standards-Version to 4.6.0 (no change)
+  * Mark library package with "Multi-Arch: foreign"
+  * Update versioned dependencies as per go.mod
+  * Refresh debian/watch
+
+ -- Anthony Fok <foka@debian.org>  Tue, 02 Nov 2021 11:21:11 -0600
+
+golang-github-alecthomas-kong (0.2.4-1) unstable; urgency=medium
+
+  * New upstream version 0.2.4
+  * Bump Standards-Version to 4.5.0 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Mon, 25 May 2020 11:44:58 -0600
+
+golang-github-alecthomas-kong (0.2.1-1) unstable; urgency=medium
+
+  * New upstream version 0.2.1
+  * Bump debhelper dependency to "Build-Depends: debhelper-compat (= 12)"
+  * Add "Rules-Requires-Root: no" to debian/control
+  * Bump Standards-Version to 4.4.1 (no change)
+  * debian/gbp.conf: Change debian-branch to debian/sid for DEP-14 conformance
+  * Remove debian/patches which contained only old upstream patch
+  * Add new dependency on golang-github-pkg-errors-dev
+
+ -- Anthony Fok <foka@debian.org>  Mon, 02 Dec 2019 13:37:33 -0700
+
+golang-github-alecthomas-kong (0.1.15-1) unstable; urgency=medium
+
+  * Initial release (Closes: #917131)
+  * Add COPYING from upstream author, ascertaining Kong is under the
+    MIT (Expat) License. See https://github.com/alecthomas/kong/issues/28
+  * Add missing copyright information on levenshtein.go.
+    This Go implementation of the Levenshtein algorithm was contributed
+    by David Deng to Wikibooks under the CC-BY-SA-3.0.
+    Special thanks to Thorsten Alteholz for catching my oversight!
+
+ -- Anthony Fok <foka@debian.org>  Thu, 17 Jan 2019 18:41:47 -0700
